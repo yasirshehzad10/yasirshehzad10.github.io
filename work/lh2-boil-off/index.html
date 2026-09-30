@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Liquid hydrogen boil-off modelling | Muhammad Yasir</title>
+<meta name="description" content="A layer-resolved multilayer insulation model for liquid hydrogen tanks, coupled to a two-phase boil-off model and a cost module. Under review.">
+<link rel="canonical" href="https://yasirshehzad10.github.io/work/lh2-boil-off/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Liquid hydrogen boil-off modelling | Muhammad Yasir">
+<meta property="og:description" content="A layer-resolved multilayer insulation model for liquid hydrogen tanks, coupled to a two-phase boil-off model and a cost module. Under review.">
+<meta property="og:url" content="https://yasirshehzad10.github.io/work/lh2-boil-off/">
+<meta property="og:image" content="https://yasirshehzad10.github.io/assets/img/og/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="nav-in">
+  <a class="brand" href="../../">Muhammad Yasir</a>
+  <nav aria-label="Main"><a href="../../#work" aria-current="page">Work</a><a href="../../publications/">Publications</a><a href="../../about/">About</a><a href="../../cv.pdf">CV</a></nav>
+</div></header>
+<main id="main">
+<section class="case-hero"><div class="wrap reveal">
+<p class="eyebrow">In progress · Collaboration with Durham University</p>
+<h1>Why liquid hydrogen boils away</h1>
+<p class="lede">A layer-resolved model of multilayer insulation, coupled to a two-phase boil-off model and a cost module.</p><p style="margin-top:18px;color:var(--ink2);font-size:19px">Under review</p>
+</div></section>
+<section class="sec sec--alt sec--tight"><div class="wrap reveal"><div class="bignum"><b>12.76</b><span>sensitivity index for vacuum pressure, ahead of fill level at 9.60 and insulation layer count at 5.80</span></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>The problem</h2><div><div class="prose"><p>Liquid hydrogen sits at about 20 K. Heat leaks in through the insulation, a fraction of the liquid evaporates, and that gas has to be vented, reliquefied or used. The size of the loss sets much of the cost of storage.</p></div></div></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>What I built</h2><div><div class="prose"><p>Most boil-off models treat the insulation as a single block with one effective conductivity. I built a model in Python that resolves every layer of the multilayer insulation at every timestep. It is coupled to a two-phase thermodynamic model of the tank and to an economic module.</p></div><figure style="margin-top:28px"><div class="panel acc-indigo" style="padding:28px"><svg viewBox="0 0 560 300" role="img" aria-labelledby="lh-t" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" font-family="inherit" style="max-width:640px;margin-inline:auto">
+          <title id="lh-t">Cross-section of a liquid hydrogen tank: an outer wall, a vacuum gap, layers of multilayer insulation around an inner tank holding liquid hydrogen and vapour. Heat leaks in from outside and boil-off gas leaves at the top.</title>
+          <defs>
+            <clipPath id="lh-clip"><rect x="140" y="100" width="240" height="100" rx="46"/></clipPath>
+            <marker id="lk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" stroke="#5e5ce6" stroke-width="1.6"/></marker>
+          </defs>
+          <rect x="90" y="50" width="340" height="200" rx="70"/>
+          <g stroke-width="1" opacity=".4">
+            <rect x="134" y="94" width="252" height="112" rx="52"/>
+            <rect x="130" y="90" width="260" height="120" rx="56"/>
+            <rect x="126" y="86" width="268" height="128" rx="60"/>
+            <rect x="122" y="82" width="276" height="136" rx="64"/>
+            <rect x="118" y="78" width="284" height="144" rx="68"/>
+          </g>
+          <rect x="140" y="100" width="240" height="100" rx="46"/>
+          <g clip-path="url(#lh-clip)"><rect x="140" y="128" width="240" height="72" fill="#5e5ce6" fill-opacity=".2" stroke="none"/></g>
+          <path d="M140 128H380" stroke="#5e5ce6" stroke-width="1" clip-path="url(#lh-clip)"/>
+          <path d="M260 100V34" stroke="#5e5ce6" marker-end="url(#lk)"/>
+          <path d="M14 150H84" stroke="#5e5ce6" marker-end="url(#lk)"/>
+          <path d="M200 292V256" stroke="#5e5ce6" marker-end="url(#lk)"/>
+          <path d="M320 292V256" stroke="#5e5ce6" marker-end="url(#lk)"/>
+          <g stroke-width="1"><path d="M430 150H450"/><path d="M416 122L446 106"/><path d="M394 172L446 196"/></g>
+          <g fill="currentColor" stroke="none"><circle cx="430" cy="150" r="2.4"/><circle cx="416" cy="122" r="2.4"/><circle cx="394" cy="172" r="2.4"/></g>
+          <g stroke="none" fill="currentColor" font-size="15">
+            <text x="272" y="44" fill="#5e5ce6" font-weight="600">Boil-off gas</text>
+            <text x="14" y="134" fill="#5e5ce6" font-weight="600">Heat leak</text>
+            <text x="260" y="170" text-anchor="middle" fill="#5e5ce6" font-weight="600">Liquid H₂</text>
+            <text x="260" y="118" text-anchor="middle" opacity=".7">Vapour</text>
+            <text x="456" y="155">Outer wall</text>
+            <text x="452" y="110">Vacuum gap</text>
+            <text x="452" y="201">MLI layers</text>
+          </g>
+        </svg></div><figcaption>Schematic only.</figcaption></figure></div></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>Results</h2><div><div class="prose"><p>A global sensitivity analysis over seven design variables puts vacuum pressure first, with an index of 12.76. Fill level comes second at 9.60, then insulation layer count at 5.80.</p><p>Over a 90-day run the boil-off fraction rose from under 10% to over 50% as the vacuum degraded from 5×10⁻⁴ Pa to 0.46 Pa. The storage-related levelised cost of hydrogen came to between $6.19 and $6.88 per kilogram. The best fill level is about 75%, and the best insulation layer count sits between 60 and 70.</p></div></div></div></div></section>
+<section class="sec sec--alt sec--tight"><div class="wrap reveal">
+<div class="cite"><span class="flabel" style="font-weight:600">Cite this work</span><p>Yasir, M., et al. An integrated layer-resolved heat transfer and thermodynamic model for boil-off gas prediction in LH₂ storage tanks. Under review.</p><div class="row"></div></div>
+</div></section>
+<div class="wrap"><nav class="pager" aria-label="Case studies"><span><a class="chev-link" href="../lng-dual-mixed-refrigerant/">LNG liquefaction</a></span><span><a class="chev-link" href="../ccgt-egr/">Gas power plant capture</a></span></nav></div>
+</main>
+<footer class="foot"><div class="foot-in">
+  <span>© 2026 Muhammad Yasir · Islamabad, Pakistan</span>
+  <ul>
+    <li><a href="#" data-u="yasirshehzad0" data-d="gmail.com">Email</a></li>
+    <li><a href="https://www.linkedin.com/in/muhammadyasir-che" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://scholar.google.com/citations?user=EjWnAtcAAAAJ" rel="noopener">Google Scholar</a></li>
+    <li><a href="https://orcid.org/0009-0003-7058-2050" rel="noopener">ORCID</a></li>
+    <li><a href="https://github.com/yasirshehzad10" rel="noopener">GitHub</a></li>
+  </ul>
+</div></footer>
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

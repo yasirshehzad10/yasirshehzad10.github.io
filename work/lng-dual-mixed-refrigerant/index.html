@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LNG refrigeration cycle optimisation | Muhammad Yasir</title>
+<meta name="description" content="A dual mixed refrigerant LNG cycle with both refrigerant compositions tuned together. Compressor power fell 26% and operating cost fell 23%.">
+<link rel="canonical" href="https://yasirshehzad10.github.io/work/lng-dual-mixed-refrigerant/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LNG refrigeration cycle optimisation | Muhammad Yasir">
+<meta property="og:description" content="A dual mixed refrigerant LNG cycle with both refrigerant compositions tuned together. Compressor power fell 26% and operating cost fell 23%.">
+<meta property="og:url" content="https://yasirshehzad10.github.io/work/lng-dual-mixed-refrigerant/">
+<meta property="og:image" content="https://yasirshehzad10.github.io/assets/img/og/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="citation_title" content="A thermo-economic optimization of dual multicomponent refrigerant cycles: Minimizing operational expenditure (OPEX) in natural gas liquefaction">
+<meta name="citation_author" content="Yasir, Muhammad">
+<meta name="citation_author" content="Saeed, Saad">
+<meta name="citation_author" content="Khan, Arslan">
+<meta name="citation_author" content="Ali, Imtiaz">
+<meta name="citation_journal_title" content="Energy">
+<meta name="citation_publication_date" content="2025/07/13">
+<meta name="citation_doi" content="10.1016/j.energy.2025.137562">
+<meta name="citation_volume" content="334">
+<meta name="citation_firstpage" content="137562">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="nav-in">
+  <a class="brand" href="../../">Muhammad Yasir</a>
+  <nav aria-label="Main"><a href="../../#work" aria-current="page">Work</a><a href="../../publications/">Publications</a><a href="../../about/">About</a><a href="../../cv.pdf">CV</a></nav>
+</div></header>
+<main id="main">
+<section class="case-hero"><div class="wrap reveal">
+<p class="eyebrow">Energy · 2025</p>
+<h1>Less power to liquefy natural gas</h1>
+<p class="lede">A dual mixed refrigerant cycle, with the composition of both refrigerants tuned together.</p>
+</div></section>
+<section class="sec sec--alt sec--tight"><div class="wrap reveal"><div class="bignum"><b>26<small>%</small></b><span>less compressor power, from 530.5 to 392.4 kJ per kg of LNG</span></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>The problem</h2><div><div class="prose"><p>Liquefying natural gas is mostly a compressor problem. Most of the energy goes into the refrigeration loops that cool the gas, so any saving there shows up straight in the operating bill.</p><p>A dual mixed refrigerant process uses two loops, and each loop carries a blend of several components. The blend decides how hard the compressors work. Twelve coupled composition variables are too many to tune by hand.</p></div></div></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>What I built</h2><div><div class="prose"><p>The cycle makes LNG at 27 bar. That lets the product leave at about −112 °C instead of −160 °C, which trims the refrigeration load before any optimisation starts.</p><p>I modelled the cycle in Aspen Plus and cross-checked it in Aspen HYSYS. Then I wrote a genetic algorithm in MATLAB that talks to Aspen Plus through COM. It searches the composition of both refrigerants at once, and the simulator scores every candidate.</p></div></div></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>Results</h2><div><div class="prose"><p>Compressor power fell 26%, from 530.5 to 392.4 kJ per kg of LNG, against the baseline cycle the study started from. Intercooler duty dropped by about 13%. Counting utilities only, operating cost fell 23%, from $14.61 to $11.23 per tonne of LNG.</p><p>The search converged in 10 generations, after testing 5,000 combinations of the two refrigerant compositions. A sensitivity analysis showed that a small subset of the composition variables drove most of the objective.</p></div><div class="figure-grid" style="margin-top:28px"><div class="panel acc-blue"><h3>Compressor power</h3><div class="bars" role="img" aria-label="Compressor power fell from 530.5 to 392.4 kilojoules per kilogram of LNG"><div class="bar-row"><span class="bar-l">Baseline</span><span class="bar-t"><i style="--w:100%"></i></span><span class="bar-v">530.5</span></div><div class="bar-row acc"><span class="bar-l">Optimised</span><span class="bar-t"><i style="--w:74%"></i></span><span class="bar-v">392.4</span></div></div><p class="cap">Kilojoules per kilogram of LNG.</p></div><div class="panel acc-blue"><h3>Operating cost</h3><div class="bars" role="img" aria-label="Utility operating cost fell from 14.61 to 11.23 dollars per tonne of LNG"><div class="bar-row"><span class="bar-l">Baseline</span><span class="bar-t"><i style="--w:100%"></i></span><span class="bar-v">$14.61</span></div><div class="bar-row acc"><span class="bar-l">Optimised</span><span class="bar-t"><i style="--w:76.9%"></i></span><span class="bar-v">$11.23</span></div></div><p class="cap">Dollars per tonne of LNG, utilities only.</p></div></div></div></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>What limits it</h2><div><div class="prose"><p>This is a steady-state simulation. Exchangers have no pressure drop, heat losses from pipes and vessels are ignored, and refrigerant flow rates, temperatures and pressures stay at the baseline design values, so only the compositions move.</p></div></div></div></div></section>
+<section class="sec sec--alt sec--tight"><div class="wrap reveal">
+<div class="cite"><span class="flabel" style="font-weight:600">Cite this work</span><p>Yasir, M., Saeed, S., Khan, A., Ali, I. (2025). A thermo-economic optimization of dual multicomponent refrigerant cycles: Minimizing operational expenditure (OPEX) in natural gas liquefaction. <i>Energy</i>, 334, 137562.</p><div class="row"><a href="https://doi.org/10.1016/j.energy.2025.137562" rel="noopener">DOI</a><button type="button" class="btn" data-bibtex="bib-lng">Copy BibTeX</button></div><script type="text/plain" id="bib-lng">@article{yasir2025lng,
+  author  = {Yasir, Muhammad and Saeed, Saad and Khan, Arslan and Ali, Imtiaz},
+  title   = {A thermo-economic optimization of dual multicomponent refrigerant cycles: Minimizing operational expenditure (OPEX) in natural gas liquefaction},
+  journal = {Energy},
+  volume  = {334},
+  pages   = {137562},
+  year    = {2025},
+  doi     = {10.1016/j.energy.2025.137562}
+}</script></div>
+</div></section>
+<div class="wrap"><nav class="pager" aria-label="Case studies"><span><a class="chev-link" href="../rpb-carbon-capture/">Carbon capture</a></span><span><a class="chev-link" href="../lh2-boil-off/">Liquid hydrogen boil-off</a></span></nav></div>
+</main>
+<footer class="foot"><div class="foot-in">
+  <span>© 2026 Muhammad Yasir · Islamabad, Pakistan</span>
+  <ul>
+    <li><a href="#" data-u="yasirshehzad0" data-d="gmail.com">Email</a></li>
+    <li><a href="https://www.linkedin.com/in/muhammadyasir-che" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://scholar.google.com/citations?user=EjWnAtcAAAAJ" rel="noopener">Google Scholar</a></li>
+    <li><a href="https://orcid.org/0009-0003-7058-2050" rel="noopener">ORCID</a></li>
+    <li><a href="https://github.com/yasirshehzad10" rel="noopener">GitHub</a></li>
+  </ul>
+</div></footer>
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

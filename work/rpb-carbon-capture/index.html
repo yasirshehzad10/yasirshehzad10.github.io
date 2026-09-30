@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Carbon capture with rotating packed beds | Muhammad Yasir</title>
+<meta name="description" content="A full-scale post-combustion capture loop built on rotating packed beds, with a custom bed model coupled to Aspen Plus. CO2 capture cost fell from $224.6 to $77.88 per tonne.">
+<link rel="canonical" href="https://yasirshehzad10.github.io/work/rpb-carbon-capture/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Carbon capture with rotating packed beds | Muhammad Yasir">
+<meta property="og:description" content="A full-scale post-combustion capture loop built on rotating packed beds, with a custom bed model coupled to Aspen Plus. CO2 capture cost fell from $224.6 to $77.88 per tonne.">
+<meta property="og:url" content="https://yasirshehzad10.github.io/work/rpb-carbon-capture/">
+<meta property="og:image" content="https://yasirshehzad10.github.io/assets/img/og/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="citation_title" content="Integrated rotating packed bed reactor design for post combustion carbon capture: Parametric analysis, optimization and economic viability">
+<meta name="citation_author" content="Yasir, Muhammad">
+<meta name="citation_author" content="Haider, Junaid">
+<meta name="citation_author" content="Saeed, Saad">
+<meta name="citation_author" content="Amanipour, Mahdi">
+<meta name="citation_author" content="Roskilly, Tony">
+<meta name="citation_journal_title" content="Separation and Purification Technology">
+<meta name="citation_publication_date" content="2026/01/01">
+<meta name="citation_doi" content="10.1016/j.seppur.2025.136584">
+<meta name="citation_volume" content="386">
+<meta name="citation_firstpage" content="136584">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="nav-in">
+  <a class="brand" href="../../">Muhammad Yasir</a>
+  <nav aria-label="Main"><a href="../../#work" aria-current="page">Work</a><a href="../../publications/">Publications</a><a href="../../about/">About</a><a href="../../cv.pdf">CV</a></nav>
+</div></header>
+<main id="main">
+<section class="case-hero"><div class="wrap reveal">
+<p class="eyebrow">Separation and Purification Technology · 2026</p>
+<h1>A much smaller carbon capture plant</h1>
+<p class="lede">A full-scale capture loop built on rotating packed beds, with a bed model written from scratch where Aspen has none.</p>
+</div></section>
+<section class="sec sec--alt sec--tight"><div class="wrap reveal"><div class="bignum"><b>65<small>%</small></b><span>lower CO₂ capture cost than a conventional packed bed, from $224.6 to $77.88 per tonne</span></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>The problem</h2><div><div class="prose"><p>Amine scrubbing works, but the columns are huge. Packing volume drives the capital cost, and the heat needed to regenerate the solvent drives the running cost.</p><p>Rotating packed beds spin the packing to create high gravity. That speeds up mass transfer and should shrink the equipment a lot. Earlier studies mostly tested the idea on lab rigs or on a single unit. Few had modelled a whole absorber and regenerator loop and put a price on it.</p></div></div></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>What I built</h2><div><div class="prose"><p>I built a full-scale post-combustion capture model in Aspen Plus, with the absorber and regenerator closed into one continuous loop. Aspen Plus has no rotating packed bed block, so I wrote the bed model from scratch in MATLAB, with custom mass transfer correlations, and linked the two through COM.</p><p>Aspen supplies the thermodynamic and transport properties. The MATLAB side sizes the beds and runs the analysis that follows: a parametric study, the economics, and a genetic algorithm that searches the liquid-to-gas ratio, lean loading, rotor speed and height-to-radius ratio.</p></div><figure class="paper-fig narrow"><div class="pf-img"><img src="../../assets/img/rpb/fig1.webp" width="1125" height="801" alt="Flowchart of the design workflow. Inputs are gathered, MATLAB and Aspen Plus are linked through the COM interface for property estimation and bed sizing, then parametric analysis, economic evaluation and optimisation follow." loading="lazy" decoding="async"></div><figcaption>The workflow. MATLAB and Aspen Plus are linked through the COM interface, and the parametric, cost and optimisation stages run on top of that link. <span class="credit">Figure 1 from Yasir et al., <i>Sep. Purif. Technol.</i> 386 (2026) 136584, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>.</span></figcaption></figure><figure class="paper-fig "><div class="pf-img"><img src="../../assets/img/rpb/fig2.webp" width="1489" height="985" alt="Process flow diagram of the capture loop. Flue gas enters a rotating packed bed absorber, rich solvent passes through a heat exchanger to a rotating packed bed regenerator heated by steam, and lean solvent returns to the absorber. CO2 leaves the regenerator." loading="lazy" decoding="async"></div><figcaption>The full capture loop: flue gas into the rotating packed bed absorber, rich solvent across to the regenerator, lean solvent back. <span class="credit">Figure 2 from Yasir et al., <i>Sep. Purif. Technol.</i> 386 (2026) 136584, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>.</span></figcaption></figure></div></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>Results</h2><div><div class="prose"><p>Before any optimisation I ran a parametric study at MEA concentrations of 30, 45 and 60 wt% and lean loadings of 0.16, 0.24 and 0.30. Against a conventional packed bed, the absorber came out up to 90% shorter and the regenerator up to 80% shorter.</p><p>In the best optimised design, absorber packing volume fell from 2,909 to 134 m³ and regenerator packing from 1,975 to 519 m³. Total annualised cost fell from $175.8M a year for the packed bed to $60.99M, and CO₂ capture cost from $224.6 to $77.88 per tonne. Against the best design from the parametric study, the optimisation alone cut total annualised cost by 27%, from $84M to $60.99M.</p></div><div class="figure-grid" style="margin-top:28px"><div class="panel acc-green"><h3>CO₂ capture cost</h3><div class="bars" role="img" aria-label="Capture cost fell from 224.6 dollars per tonne for a conventional packed bed to 77.88 for the optimised rotating packed bed"><div class="bar-row"><span class="bar-l">Packed bed</span><span class="bar-t"><i style="--w:100%"></i></span><span class="bar-v">$224.6</span></div><div class="bar-row acc"><span class="bar-l">Optimised</span><span class="bar-t"><i style="--w:34.7%"></i></span><span class="bar-v">$77.88</span></div></div><p class="cap">Dollars per tonne of CO₂ captured, on a 2023 cost basis.</p></div><div class="panel acc-green"><h3>Total annualised cost</h3><div class="bars" role="img" aria-label="Total annualised cost fell from 175.8 million dollars a year for a packed bed, to 84 for the best parametric design, to 60.99 for the optimised design"><div class="bar-row"><span class="bar-l">Packed bed</span><span class="bar-t"><i style="--w:100%"></i></span><span class="bar-v">$175.8M</span></div><div class="bar-row"><span class="bar-l">First design</span><span class="bar-t"><i style="--w:47.8%"></i></span><span class="bar-v">$84M</span></div><div class="bar-row acc"><span class="bar-l">Optimised</span><span class="bar-t"><i style="--w:34.7%"></i></span><span class="bar-v">$60.99M</span></div></div><p class="cap">Million dollars a year.</p></div></div><figure class="paper-fig "><div class="pf-img"><img src="../../assets/img/rpb/fig10.webp" width="1500" height="731" alt="Line chart of total annualised cost against genetic algorithm iterations for 30, 45 and 60 weight percent MEA. All three curves fall steeply and flatten out. Boxes on the right list the best design variables found for each concentration." loading="lazy" decoding="async"></div><figcaption>Total annualised cost against genetic algorithm iterations, for 30, 45 and 60 wt% MEA. The best design found for each concentration is listed on the right. <span class="credit">Figure 10 from Yasir et al., <i>Sep. Purif. Technol.</i> 386 (2026) 136584, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>.</span></figcaption></figure><figure class="paper-fig tall"><div class="pf-img"><img src="../../assets/img/rpb/fig4.webp" width="1327" height="2036" alt="Six charts from the parametric study at 30 weight percent MEA and lean loading 0.16: absorber capture efficiency against bed radius and rotor speed, rotor power against speed, and regenerator recovery against bed radius." loading="lazy" decoding="async"></div><figcaption>One slice of the parametric study, at 30 wt% MEA and a lean loading of 0.16: how bed radius, bed depth and rotor speed set capture efficiency and rotor power in the absorber, and recovery in the regenerator. <span class="credit">Figure 4 from Yasir et al., <i>Sep. Purif. Technol.</i> 386 (2026) 136584, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>.</span></figcaption></figure></div></div></div></section>
+<section class="prose-sec "><div class="wrap"><div class="prose-grid reveal"><h2>What limits it</h2><div><div class="prose"><p>This is a simulation study. There is no pilot data for the complete absorber and regenerator loop, so I validated the two halves separately, each against one published study.</p><p>The 60 wt% MEA case that came out cheapest is also the most demanding to operate. Viscosity, corrosion and the temperature rise from the heat of absorption all grow with concentration, and the paper points to corrosion inhibitors and intercooling to manage them.</p></div></div></div></div></section>
+<section class="sec sec--alt sec--tight"><div class="wrap reveal">
+<div class="cite"><span class="flabel" style="font-weight:600">Cite this work</span><p>Yasir, M., Haider, J., Saeed, S., Amanipour, M., Roskilly, T. (2026). Integrated rotating packed bed reactor design for post combustion carbon capture: Parametric analysis, optimization and economic viability. <i>Separation and Purification Technology</i>, 386, 136584.</p><div class="row"><a href="https://doi.org/10.1016/j.seppur.2025.136584" rel="noopener">Read the paper</a><button type="button" class="btn" data-bibtex="bib-rpb">Copy BibTeX</button><span style="color:var(--ink3);font-size:14px">Open access, CC BY 4.0</span></div><script type="text/plain" id="bib-rpb">@article{yasir2026rpb,
+  author  = {Yasir, Muhammad and Haider, Junaid and Saeed, Saad and Amanipour, Mahdi and Roskilly, Tony},
+  title   = {Integrated rotating packed bed reactor design for post combustion carbon capture: Parametric analysis, optimization and economic viability},
+  journal = {Separation and Purification Technology},
+  volume  = {386},
+  pages   = {136584},
+  year    = {2026},
+  doi     = {10.1016/j.seppur.2025.136584}
+}</script></div>
+</div></section>
+<div class="wrap"><nav class="pager" aria-label="Case studies"><span></span><span><a class="chev-link" href="../lng-dual-mixed-refrigerant/">LNG liquefaction</a></span></nav></div>
+</main>
+<footer class="foot"><div class="foot-in">
+  <span>© 2026 Muhammad Yasir · Islamabad, Pakistan</span>
+  <ul>
+    <li><a href="#" data-u="yasirshehzad0" data-d="gmail.com">Email</a></li>
+    <li><a href="https://www.linkedin.com/in/muhammadyasir-che" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://scholar.google.com/citations?user=EjWnAtcAAAAJ" rel="noopener">Google Scholar</a></li>
+    <li><a href="https://orcid.org/0009-0003-7058-2050" rel="noopener">ORCID</a></li>
+    <li><a href="https://github.com/yasirshehzad10" rel="noopener">GitHub</a></li>
+  </ul>
+</div></footer>
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
